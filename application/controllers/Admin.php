@@ -71,9 +71,6 @@ class Admin extends CI_Controller{
       $pengarang = $this->input->post('pengarang');
       $penerbit = $this->input->post('penerbit');
       $thn_terbit = $this->input->post('thn_terbit');
-      $isbn = $this->input->post('isbn');
-      $jumlah_buku = $this->input->post('jumlah_buku');
-      $lokasi = $this->input->post('lokasi');
       $status = $this->input->post('status');
       $this->form_validation->set_rules('id_kategori','Kategori','required');
       $this->form_validation->set_rules('judul_buku','Judul Buku','required');
@@ -96,9 +93,6 @@ class Admin extends CI_Controller{
             'pengarang' => $pengarang,
             'penerbit' => $penerbit,
             'thn_terbit' => $thn_terbit,
-            'isbn' => $isbn,
-            'jumlah_buku' => $jumlah_buku,
-            'lokasi' => $lokasi,
             'gambar' => $image['file_name'],
             'tgl_input' => $tgl_input,
             'status_buku' => $status
@@ -136,9 +130,6 @@ class Admin extends CI_Controller{
       $pengarang = $this->input->post('pengarang');
       $penerbit = $this->input->post('penerbit');
       $thn_terbit = $this->input->post('thn_terbit');
-      $isbn = $this->input->post('isbn');
-      $jumlah_buku = $this->input->post('jumlah_buku');
-      $lokasi = $this->input->post('lokasi');
       $status = $this->input->post('status');
 
       $this->form_validation->set_rules('id_kategori','ID Kategori','required');
@@ -146,9 +137,6 @@ class Admin extends CI_Controller{
       $this->form_validation->set_rules('pengarang','Pengarang','required|min_length[4]');
       $this->form_validation->set_rules('penerbit','Penerbit','required|min_length[4]');
       $this->form_validation->set_rules('thn_terbit','Tahun Terbit','required|min_length[4]');
-      $this->form_validation->set_rules('isbn','Nomor ISBN','required|numeric');
-      $this->form_validation->set_rules('jumlah_buku','Jumlah Buku','required|numeric');
-      $this->form_validation->set_rules('lokasi','Lokasi Buku','required|min_length[4]');
       $this->form_validation->set_rules('status','Status Buku','required');
 
       if($this->form_validation->run() != false){
@@ -166,9 +154,6 @@ class Admin extends CI_Controller{
             'pengarang' =>$pengarang,
             'penerbit' =>$penerbit,
             'thn_terbit' =>$thn_terbit,
-            'isbn' =>$isbn,
-            'jumlah_buku' =>$jumlah_buku,
-            'lokasi' =>$lokasi,
             'gambar' =>$image['file_name'],
             'status_buku' =>$status
           );

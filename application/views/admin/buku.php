@@ -17,7 +17,6 @@
                       <th>Judul Buku</th>
                       <th>Pengarang</th>
                       <th>Penerbit</th>
-                      <th>Jumlah Buku</th>
                       <th>Status</th>
                       <th>Pilihan</th>
                     </tr>
@@ -33,7 +32,6 @@
                       <td><?php echo $b->judul_buku ?></td>
                       <td><?php echo $b->pengarang ?></td>
                       <td><?php echo $b->penerbit ?></td>
-                      <td><?php echo $b->jumlah_buku ?></td>
                       <td><?php if($b->status_buku == "1"){ echo "Tersedia"; } else if($b->status_buku == "0"){ echo "Sedang dipinjam"; } ?> </td>
                       <td nowrap="nowrap">
                         <a class="btn btn-success btn-xs" href="<?php echo base_url().'admin/edit_buku/'.$b->id_buku; ?>"><i class="fas fa-edit"></i> Edit</a>
@@ -93,22 +91,6 @@
                     <input type="date" name="thn_terbit" class="form-control" placeholder="DD/MM/YYYY">
                   </div>
               </div>
-              
-              <div class="col-md-6">
-                  <div class="form-group">
-                    <label><i class="far fa-list-alt text-dark"></i> ISBN</label>
-                    <input type="text" name="isbn" class="form-control" placeholder="ISBN" maxlength="12" autocomplete="off">
-                  </div>
-              
-                <div class="form-group">
-                  <label><i class="fas fa-swatchbook text-dark"></i> Jumlah Buku</label>
-                  <input type="text" name="jumlah_buku" class="form-control" placeholder="Jumlah Buku" autocomplete="off">
-                </div>
-
-                <div class="form-group">
-                  <label><i class="fas fa-map-marker-alt text-dark"></i> Lokasi</label>
-                  <input type="text" name="lokasi" class="form-control" placeholder="Lokasi" autocomplete="off">
-                </div>
 
                 <div class="form-group">
                   <label><i class="fas fa-info-circle text-dark"></i> Status Buku</label>
@@ -186,25 +168,7 @@
                 <input type="date" name="thn_terbit" class="form-control" value="<?php echo $b->thn_terbit; ?>">
                 <?php echo form_error('thn_terbit'); ?>
               </div>
-
-              <div class="form-group">
-                <label><i class="far fa-list-alt text-danger"></i> ISBN</label>
-                <input type="text" name="isbn" class="form-control" value="<?php echo $b->isbn; ?>">
-                <?php echo form_error('isbn'); ?>
-              </div>
-
-              <div class="form-group">
-                <label><i class="fas fa-swatchbook text-danger"></i> Jumlah Buku</label>
-                <input type="text" name="jumlah_buku" class="form-control" value="<?php echo $b->jumlah_buku; ?>">
-                <?php echo form_error('jumlah_buku'); ?>
-              </div>
-
-              <div class="form-group">
-                <label><i class="fas fa-map-marker-alt text-danger"></i> Lokasi</label>
-                <input type="text" name="lokasi" class="form-control" value="<?php echo $b->lokasi; ?>">
-                <?php echo form_error('lokasi'); ?>
-              </div>
-
+			  
               <div class="form-group">
                 <label><i class="fas fa-info-circle text-danger"></i> Status Buku</label>
                 <select name="status" class="form-control">

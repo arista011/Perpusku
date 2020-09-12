@@ -15,7 +15,6 @@ class Buku extends CI_Controller {
 			$data['penerbit'] = $fields->penerbit;
 			$data['kategori'] = $fields->nama_kategori;
 			$data['tahun'] = $fields->thn_terbit;
-			$data['isbn'] = $fields->isbn;
 			$data['gambar'] = $fields->gambar;
 			$data['id'] = $fields->id_buku;
 		}

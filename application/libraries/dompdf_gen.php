@@ -27,8 +27,19 @@ class Dompdf_gen {
 		$pdf = new DOMPDF();
 		
 		$CI =& get_instance();
-		$CI->dompdf = $pdf;
+		$CI->filename = $pdf;
 		
 	}
+	protected function _ci(){
+		return get_instance();
+	}
 	
+	public function load_view($view, $data = array()){
+		$html = $this->_ci()->load->view($view, $data, TRUE);
+		$this->load_html($html);
+		
+		//Render the PDF
+		$this->render();
+	$this->stream($this->filename, array ("Attachment" => false)
+	}
 }
