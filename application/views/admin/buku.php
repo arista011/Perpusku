@@ -37,6 +37,7 @@
                         <a class="btn btn-success btn-xs" href="<?php echo base_url().'admin/edit_buku/'.$b->id_buku; ?>"><i class="fas fa-edit"></i> Edit</a>
                         <a class="btn btn-danger btn-xs" href="<?php echo base_url().'admin/hapus_buku/'.$b->id_buku; ?>"><i class="fas fa-trash-alt"></i> Hapus</a>
                         <a class="btn btn-danger btn-xs" href="<?php echo base_url().'admin/pdf/'.$b->id_buku; ?>"><i class="fas fa-trash-alt"></i> View</a>
+                          <a class="btn btn-danger btn-xs" href="<?php echo base_url().'admin/laporan_pdf/'?>"><i class="fas fa-trash-alt"></i> Laporan Pdf</a>
                       </td>
                     </tr>
                   <?php } ?>

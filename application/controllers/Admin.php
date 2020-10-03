@@ -129,7 +129,7 @@ class Admin extends CI_Controller{
         echo $html;
     }
 
-  
+
     function update_buku(){
       $id = $this->input->post('id');
       $id_kategori = $this->input->post('id_kategori');
@@ -533,5 +533,22 @@ class Admin extends CI_Controller{
           $this->dompdf->stream("laporan_data_peminjaman.pdf", array('Attachment'=>0));
         }
 
+        public function laporan_pdf(){
+
+    $data = array(
+        "dataku" => array(
+            "nama" => "Petani Kode",
+            "url" => "http://petanikode.com"
+        )
+    );
+
+    $this->load->library('Pdf');
+
+    $this->pdf->setPaper('A4', 'potrait');
+    $this->pdf->filename = "laporan-petanikode.pdf";
+    $this->pdf->load_view('admin/laporan_pdf', $data);
+
+
+}
 
 }
