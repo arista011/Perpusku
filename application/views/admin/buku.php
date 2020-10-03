@@ -36,6 +36,7 @@
                       <td nowrap="nowrap">
                         <a class="btn btn-success btn-xs" href="<?php echo base_url().'admin/edit_buku/'.$b->id_buku; ?>"><i class="fas fa-edit"></i> Edit</a>
                         <a class="btn btn-danger btn-xs" href="<?php echo base_url().'admin/hapus_buku/'.$b->id_buku; ?>"><i class="fas fa-trash-alt"></i> Hapus</a>
+                        <a class="btn btn-danger btn-xs" href="<?php echo base_url().'admin/pdf/'.$b->id_buku; ?>"><i class="fas fa-trash-alt"></i> View</a>
                       </td>
                     </tr>
                   <?php } ?>
@@ -105,9 +106,9 @@
                   <label><i class="fas fa-image text-dark"></i> Gambar</label>
                   <input type="file" name="foto" class="form-control">
                 </div>
-                
+
                 <!-- Perlu Edit Posisi Modal Footer -->
-                <div class="modal-footer"> 
+                <div class="modal-footer">
                   <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>
                   <input type="submit" value="Simpan" class="btn btn-primary btn-sm">
                 </div>
@@ -120,7 +121,7 @@
     </div>
 <!-- Modal Tambah Buku -->
 
-<!-- Modal Edit Buku 
+<!-- Modal Edit Buku
 <?php foreach ($buku as $b){ ?>
     <div class="modal fade" id="modalEditBuku<?php echo base_url().'admin/buku/'.$b->id_buku; ?>" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
@@ -168,7 +169,7 @@
                 <input type="date" name="thn_terbit" class="form-control" value="<?php echo $b->thn_terbit; ?>">
                 <?php echo form_error('thn_terbit'); ?>
               </div>
-			  
+
               <div class="form-group">
                 <label><i class="fas fa-info-circle text-danger"></i> Status Buku</label>
                 <select name="status" class="form-control">
@@ -186,7 +187,7 @@
                   echo '<img src="'.base_url().'assets/upload/'.$b->gambar.'" width="30%">';
                   }
                   ?>
-                  <br>  
+                  <br>
                 <input name="foto" type="file" class="form-control">
               </div>
 
@@ -209,7 +210,7 @@ Modal Edit Buku -->
       <div class="container-fluid">
         <div class="copyright ml-left">
           Copyright © 2019, made with <i class="fa fa-heart heart text-danger"></i> by <a href="#">Fiqisulaiman</a>
-        </div>        
+        </div>
       </div>
     </footer>
   </div>

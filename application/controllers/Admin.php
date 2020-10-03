@@ -123,6 +123,13 @@ class Admin extends CI_Controller{
       $this->load->view('admin/footer');
     }
 
+    public function pdf($id){
+        $url = base_url("pdf/".$id.".pdf");
+        $html = '<iframe src="'.$url.'" style="border:none; width: 100%; height: 100%"></iframe>';
+        echo $html;
+    }
+
+  
     function update_buku(){
       $id = $this->input->post('id');
       $id_kategori = $this->input->post('id_kategori');
@@ -265,7 +272,7 @@ class Admin extends CI_Controller{
               $this->load->view('admin/footer');
           }
       }
-      
+
       function hapus_anggota($id){
         $where = array('id_anggota' => $id);
         $this->M_perpus->delete_data($where,'anggota');
@@ -428,7 +435,7 @@ class Admin extends CI_Controller{
           $this->dompdf->load_html($html);
           $this->dompdf->render();
           $this->dompdf->stream("laporan_data_buku.pdf", array('Attachment'=>0));
-          // Nama File pdf 
+          // Nama File pdf
         }
 
         // Laporan Anggota
@@ -462,7 +469,7 @@ class Admin extends CI_Controller{
           $this->dompdf->load_html($html);
           $this->dompdf->render();
           $this->dompdf->stream("laporan_data_anggota.pdf", array('Attachment'=>0));
-          // Nama File pdf 
+          // Nama File pdf
         }
 
         // Laporan Peminjaman
@@ -525,4 +532,6 @@ class Admin extends CI_Controller{
           $this->dompdf->render();
           $this->dompdf->stream("laporan_data_peminjaman.pdf", array('Attachment'=>0));
         }
+
+
 }
