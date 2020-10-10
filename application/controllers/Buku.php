@@ -26,7 +26,7 @@ class Buku extends CI_Controller {
 		}
 	}
 
-	
+
 }
 /* End of file Buku.php */
 /* Location: ./application/controllers/Buku.php */

@@ -47,26 +47,6 @@
                 <input type="date" name="thn_terbit" class="form-control" value="<?php echo $b->thn_terbit; ?>">
                 <?php echo form_error('thn_terbit'); ?>
               </div>
-            </div>
-            
-            <div class="col-md-6">
-              <div class="form-group">
-                <label><i class="far fa-list-alt text-dark"></i> ISBN</label>
-                <input type="text" name="isbn" class="form-control" value="<?php echo $b->isbn; ?>">
-                <?php echo form_error('isbn'); ?>
-              </div>
-
-              <div class="form-group">
-                <label><i class="fas fa-swatchbook text-dark"></i> Jumlah Buku</label>
-                <input type="text" name="jumlah_buku" class="form-control" value="<?php echo $b->jumlah_buku; ?>">
-                <?php echo form_error('jumlah_buku'); ?>
-              </div>
-
-              <div class="form-group">
-                <label><i class="fas fa-map-marker-alt text-dark"></i> Lokasi</label>
-                <input type="text" name="lokasi" class="form-control" value="<?php echo $b->lokasi; ?>">
-                <?php echo form_error('lokasi'); ?>
-              </div>
 
               <div class="form-group">
                 <label><i class="fas fa-info-circle text-dark"></i> Status Buku</label>
@@ -85,18 +65,18 @@
                   echo '<img src="'.base_url().'assets/upload/'.$b->gambar.'" width="30%">';
                   }
                   ?>
-                  <br>  
+                  <br>
                 <input name="foto" type="file" class="form-control">
               </div>
-            </div>
+
 
             <!-- Butuh Perbiakan di tombol -->
-
-              <div class="col-md-6 text-center mb-3">
+            <div class="form-group">
                 <input type="submit" value="Update" class="btn btn-primary btn-sm">
             		<input type="button" value="Kembali" class="btn btn-danger btn-sm" onclick="window.history.go(-1)">
-              </div>
+                </div>
             </form>
+          </div>
           </div>
             <?php } ?>
           </div>

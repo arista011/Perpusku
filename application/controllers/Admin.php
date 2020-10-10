@@ -1,6 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
+
 class Admin extends CI_Controller{
   function __construct(){
     parent::__construct();
@@ -64,6 +65,8 @@ class Admin extends CI_Controller{
       $this->load->view('admin/footer');
     }
 
+
+
     function tambah_buku_act(){
       $tgl_input = date('Y-m-d');
       $id_kategori = $this->input->post('id_kategori');
@@ -78,7 +81,7 @@ class Admin extends CI_Controller{
       if($this->form_validation->run() != false){
         //configurasi upload Gambar
         $config['upload_path'] = './assets/upload/';
-        $config['allowed_types'] = 'jpg|png|jpeg';
+        $config['allowed_types'] = 'pdf';
         $config['max_size'] = '2048';
         $config['file_name'] = 'gambar'.time();
 
@@ -107,7 +110,7 @@ class Admin extends CI_Controller{
       }
     }
 
-      function hapus_buku($id){
+    function hapus_buku($id){
         $where = array('id_buku' => $id);
         $this->M_perpus->delete_data($where,'buku');
         redirect(base_url().'admin/buku');
@@ -124,11 +127,16 @@ class Admin extends CI_Controller{
     }
 
     public function pdf($id){
-        $url = base_url("pdf/".$id.".pdf");
+        $where = array('id_buku' => $id);
+        $pdf = $this->db->query("SELECT * FROM buku WHERE id_buku='$id'")->result();
+
+        foreach($pdf as $fields){
+          $pdf['gambar'] = $fields->gambar;
+        }
+        $url = base_url("./assets/upload/".$fields->gambar);
         $html = '<iframe src="'.$url.'" style="border:none; width: 100%; height: 100%"></iframe>';
         echo $html;
     }
-
 
     function update_buku(){
       $id = $this->input->post('id');
@@ -168,9 +176,8 @@ class Admin extends CI_Controller{
            if($this->upload->do_upload('foto')){
               //proses upload Gambar
               $image = $this->upload->data();
-              unlink('assets/upload/'.$this->input->post('old_pict',TRUE));
+              unlink('./assets/upload/'.$this->input->post('old_pict',TRUE));
               $data['gambar'] = $image['file_name'];
-
               $this->M_perpus->update_data('buku',$data,$where);
             } else{
               $this->M_perpus->update_data('buku',$data,$where);
@@ -532,23 +539,4 @@ class Admin extends CI_Controller{
           $this->dompdf->render();
           $this->dompdf->stream("laporan_data_peminjaman.pdf", array('Attachment'=>0));
         }
-
-        public function laporan_pdf(){
-
-    $data = array(
-        "dataku" => array(
-            "nama" => "Petani Kode",
-            "url" => "http://petanikode.com"
-        )
-    );
-
-    $this->load->library('Pdf');
-
-    $this->pdf->setPaper('A4', 'potrait');
-    $this->pdf->filename = "laporan-petanikode.pdf";
-    $this->pdf->load_view('admin/laporan_pdf', $data);
-
-
-}
-
 }
