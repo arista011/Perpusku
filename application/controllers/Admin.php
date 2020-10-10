@@ -128,7 +128,7 @@ class Admin extends CI_Controller{
 
     public function pdf($id){
         $where = array('id_buku' => $id);
-        $pdf = $this->db->query("SELECT * FROM buku WHERE id_buku='$id'")->result();
+        $pdf = $this->db->query("SELECT gambar FROM buku WHERE id_buku='$id'")->result();
 
         foreach($pdf as $fields){
           $pdf['gambar'] = $fields->gambar;
